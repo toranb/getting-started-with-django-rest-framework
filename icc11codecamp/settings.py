@@ -62,4 +62,5 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'rest_framework',
 )
