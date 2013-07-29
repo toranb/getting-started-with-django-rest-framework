@@ -14,10 +14,16 @@ class SessionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Session
-        fields = ('id', 'title', 'speakers', 'both', )
+        fields = ('id', 'title', 'both', )
 
     def get_both(self, obj):
         return "yo"
+
+    def validate_title(self, attrs, source):
+        posted_title = attrs.get(source, None)
+        if posted_title == 'django':
+            raise serializers.ValidationError("INVALID DATA: title cannot be django")
+        return attrs
 
 class IndexView(ListView):
     template_name = 'index.html'
