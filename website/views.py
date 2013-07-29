@@ -10,9 +10,14 @@ class SpeakerSerializer(serializers.ModelSerializer):
 
 class SessionSerializer(serializers.ModelSerializer):
     speakers = SpeakerSerializer()
+    both = serializers.SerializerMethodField("get_both")
 
     class Meta:
         model = Session
+        fields = ('id', 'title', 'speakers', 'both', )
+
+    def get_both(self, obj):
+        return "yo"
 
 class IndexView(ListView):
     template_name = 'index.html'
