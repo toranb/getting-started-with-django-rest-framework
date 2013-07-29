@@ -1,0 +1,6 @@
+{% for session in object_list %}
+Session: <b>{{session.title}}</b><br />
+  {% for speaker in session.speakers.all %}
+  Speaker: {{speaker.name}}<br /><br />
+  {% endfor %}
+{% endfor %}
