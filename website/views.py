@@ -34,6 +34,7 @@ class IndexView(ListView):
 class SessionAPIListView(ListCreateAPIView):
     model = Session
     serializer_class = SessionSerializer
+    filter_fields = ('title', )
 
 class SessionAPIRetrieveView(RetrieveUpdateAPIView):
     model = Session
